@@ -14,7 +14,9 @@ function getIp() {
 $ip =getIp();
 $query = @unserialize(file_get_contents('http://ip-api.com/php/'.$ip));
 if($query && $query['status'] == 'success') {
-  echo $ip.$query['country'].$query['city'];
+    $country=$query['country'];
+    $city=$query['city'];
+  echo $ip.$country.$city;
 } else {
   echo 'please make proxy shut up/';
 }
